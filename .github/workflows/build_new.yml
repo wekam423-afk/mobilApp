@@ -17,11 +17,13 @@ jobs:
       - name: Install dependencies
         run: |
           cd app_source
+          cd android_app
           npm install
           
       - name: Build APK
         run: |
           cd app_source
+          cd android_app
           npx cap sync
           cd android
           chmod +x gradlew
@@ -31,4 +33,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
-          path: app_source/android/app/build/outputs/apk/debug/app-debug.apk
+          path: app_source/android_app/android/app/build/outputs/apk/debug/app-debug.apk
